@@ -1,0 +1,44 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{827E0CD3-B72D-47B6-A68D-7590B98EB39B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "evaluator", "evaluator", "{867D3DB7-B8BC-CA56-A03C-D1245DD150D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeBLEU", "CodeBLEU", "{222BF2DE-BF30-728A-0595-431D0EECAF94}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "parser", "parser", "{D393EA53-6A5B-7B00-2BF7-58A13D09061B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tree-sitter-c-sharp", "tree-sitter-c-sharp", "{4B23FD5B-54F3-976F-4E64-C396019D31B2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{A69BEF8F-C1BC-DAB1-0C9B-038DC2767AF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generator", "src\evaluator\CodeBLEU\parser\tree-sitter-c-sharp\tools\highlight-test-generator\Generator.csproj", "{06A8CA8D-BFBA-288C-A137-0B865CA06D9C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06A8CA8D-BFBA-288C-A137-0B865CA06D9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06A8CA8D-BFBA-288C-A137-0B865CA06D9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06A8CA8D-BFBA-288C-A137-0B865CA06D9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06A8CA8D-BFBA-288C-A137-0B865CA06D9C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{867D3DB7-B8BC-CA56-A03C-D1245DD150D7} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+		{222BF2DE-BF30-728A-0595-431D0EECAF94} = {867D3DB7-B8BC-CA56-A03C-D1245DD150D7}
+		{D393EA53-6A5B-7B00-2BF7-58A13D09061B} = {222BF2DE-BF30-728A-0595-431D0EECAF94}
+		{4B23FD5B-54F3-976F-4E64-C396019D31B2} = {D393EA53-6A5B-7B00-2BF7-58A13D09061B}
+		{A69BEF8F-C1BC-DAB1-0C9B-038DC2767AF4} = {4B23FD5B-54F3-976F-4E64-C396019D31B2}
+		{06A8CA8D-BFBA-288C-A137-0B865CA06D9C} = {A69BEF8F-C1BC-DAB1-0C9B-038DC2767AF4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {319982B5-5901-4C07-A630-FF5A406A1239}
+	EndGlobalSection
+EndGlobal
