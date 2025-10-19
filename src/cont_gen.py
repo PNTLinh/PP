@@ -32,6 +32,19 @@ from utils.configs import *
 from utils.replay import Buffer
 from models.T5prompt import PromptTuneT5
 from dataloaders.generation_loader import CodeXGlueDataModule, BigQueryDataModule
+import subprocess
+import subprocess
+
+LANGUAGES = ["python", "java", "javascript", "c#", "cpp", "go", "rust", "ruby", "php"]
+
+for lang in LANGUAGES:
+    subprocess.run([
+        "python3", "MultiPL-E/evaluation/src/main.py",
+        "--dir", f"outputs/{lang}",
+        "--output-dir", f"outputs/{lang}",
+        "--language", lang
+    ])
+
 STREAM_TO_DATALOADERS = {
     "mbpp":  load_mbpp,
     "vault": load_vault,

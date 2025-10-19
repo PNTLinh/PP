@@ -1,0 +1,56 @@
+# Run 4 task
+python src/cont_gen.py \
+  --keys_agg=random \
+  --pool_freq \
+  --name=pp_4tasks \
+  --pool_size=100 \
+  --prompt_method=pool \
+  --num_prompts_per_task=20 \
+  --train_only_prompts \
+  --bleu_samples=5000 \
+  --warmup_steps=500 \
+  --train_batch_size=8 \
+  --eval_batch_size=32 \
+  --log_steps=10 \
+  --data_num=-1 \
+  --save_last_checkpoints \
+  --always_save_model \
+  --project_name="C:\Users\ntlinh\Documents\PP" \
+  --stream="concode_none,translate_java-cs,summarize_ruby,refine_small"
+
+
+
+#Pass@K
+
+1. Cài đặt MultiPL-E
+git clone https://github.com/nuprl/MultiPL-E.git
+(Không cần thiết clone toàn bộ repo MultiPL-E vào trong PP, chỉ cần copy 2 file: evaluation/src/main.py và pass_k.py)
+cd MultiPL-E
+pip install -r requirements.txt
+
+2. Format output 
+output/
+└── <language>/                   # 9 lang: python, java, go, rust,...
+    └── <problem_id>/             # tập data để đánh giá 
+        ├── 0.py                  
+        ├── 1.py                 
+        └── ...      
+==> Cần lưu theo format:
+out_dir = "outputs/<language>/<problem_id>"
+os.makedirs(out_dir, exist_ok=True)
+for i, code in enumerate(output_list):
+    with open(f"{out_dir}/{i}.py", "w") as f:
+        f.write(code)   
+
+3. Đánh giá correct theo  MultiPL-E( đánh giá pass/fail)
+
+python3 evaluation/src/main.py \
+    --dir ../output/<language> \
+    --output-dir ../output/<language> \
+    --language <language>
+
+4. Tính pass@k
+python3 pass_k.py ../output/<language>
+
+
+

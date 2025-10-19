@@ -146,7 +146,7 @@ def add_args(parser):
     parser.add_argument("--warmup_steps", default=100, type=int, help="Linear warmup over warmup_steps.")
     parser.add_argument("--local_rank", type=int, default=-1, help="For distributed training: local_rank")
     parser.add_argument('--seed', type=int, default=1234, help="random seed for initialization")
-
+    parser.add_argument('--pass_k', type=int, default=1, help='Value of k for pass@k metric')
     args = parser.parse_args()
 
     if args.task in ['summarize']:
