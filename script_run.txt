@@ -52,11 +52,11 @@ python3 evaluation/src/main.py \
 4. Tính pass@k
 python3 pass_k.py ../output/<language>
 
-# đã tích hợp luôn tính pass@k vào cont_gen và config.py nên có thể tính luôn
+# Đã tích hợp luôn tính pass@k vào cont_gen và config.py nên có thể tính luôn
 python src/cont_gen.py \
   --keys_agg=random \
   --pool_freq \
-  --name=pp_4tasks_pool100 \
+  --name=pp_4tasks \
   --pool_size=100 \
   --prompt_method=pool \
   --num_prompts_per_task=20 \
@@ -69,7 +69,7 @@ python src/cont_gen.py \
   --data_num=-1 \
   --save_last_checkpoints \
   --always_save_model \
-  --project_name="PP" \
+  --project_name="C:\Users\ntlinh\Documents\PP" \
   --stream="concode_none,translate_java-cs,summarize_ruby,refine_small" \
   --eval_passk \
   --eval_langs="python,java,javascript,c#,cpp,go,rust,ruby,php" \
