@@ -14,6 +14,21 @@ logger = logging.getLogger(__name__)
 
 
 def add_args(parser):
+    if args.eval_passk:
+        langs = args.eval_langs.split(',') if hasattr(args, 'eval_langs') else [args.lang]
+        for lang in langs:
+            subprocess.run([
+                "python3", "MultiPL-E/evaluation/src/main.py",
+                "--dir", f"{args.run_output_dir}/{lang}",
+                "--language", lang,
+                "--output-dir", f"{args.run_output_dir}/{lang}"
+            ])
+            subprocess.run([
+                "python3", "MultiPL-E/evaluation/pass_k.py",
+                f"{args.run_output_dir}/{lang}", "--pass_k", str(args.pass_k)
+            ])
+
+
     parser.add_argument("--task", type=str, default=None, help="")
     parser.add_argument("--sub_task", type=str, default='')
     parser.add_argument("--stream", type=str, default=None)
@@ -147,6 +162,9 @@ def add_args(parser):
     parser.add_argument("--local_rank", type=int, default=-1, help="For distributed training: local_rank")
     parser.add_argument('--seed', type=int, default=1234, help="random seed for initialization")
     parser.add_argument('--pass_k', type=int, default=1, help='Value of k for pass@k metric')
+    parser.add_argument('--eval_passk', action='store_true', help='Bật đánh giá pass@k')
+    parser.add_argument('--eval_langs', type=str, default='python', help='Comma-separated list of languages to eval pass@k')
+
     args = parser.parse_args()
 
     if args.task in ['summarize']:
